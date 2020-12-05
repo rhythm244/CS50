@@ -1,0 +1,34 @@
+.center {
+    background-color: rgba(234, 150, 0, 120);
+    background-size: initial;
+    text-align : center;
+    color : darkblue;
+    opacity: 0.8
+}
+
+.font_item {
+    font-size: large;
+    color : green;
+    margin-left: 60px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 1000;
+    
+}
+
+/* สำหรับทำให้ช่องด้านซ้ายห่างจากขอบ 50px */ 
+.twenty_left {
+    border: 50px;
+    border : solid;
+    font-family: 'Times New Roman', Times, serif;
+    color : red;
+    margin-left: 50px;
+    margin-right: 1105px;
+    font-size: x-large;
+    font-weight : 2000;
+}
+
+.back {
+    background-image: url("cloud.jpg");
+    background-attachment: scroll;
+    opacity: 0.1;
+}
