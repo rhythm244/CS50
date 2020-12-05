@@ -4,6 +4,12 @@
     <body>
         <h1>Hello this is finance</h1>
         
+        <ul>
+            {% for row in rows %}
+                <li>{{ row["username"] }} ({{ row["password"] }})</li>
+            {% endfor %}
+        </ul>
+
         <a href="/register">Sign Up</a>
     </body>
 {% endblock %}
