@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <body>
+        <h1>CS50 Finance</h1>
+        
+        <ul>
+            {% for row in rows %}
+                <li>{{ row["username"] }} ({{ row["password"] }})</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/register">Sign Up</a>
+    </body>
+{% endblock %}
