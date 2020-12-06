@@ -1,9 +1,11 @@
 .center {
-    background-color: rgba(234, 150, 0, 120);
-    background-size: initial;
-    text-align : center;
-    color : darkblue;
-    opacity: 0.8
+  width: 650px;;
+  margin: auto;
+  margin-top: 20px;
+  border: 5px solid red;
+  background-color: rgb(247, 203, 109);
+  padding: 5px;
+  text-align: center;  
 }
 
 .font_item {
@@ -18,7 +20,9 @@
 /* สำหรับทำให้ช่องด้านซ้ายห่างจากขอบ 50px */ 
 .twenty_left {
     border: 50px;
-    border : solid;
+    border : solid blue;
+    border-radius: 10px;
+    padding: 5px;
     font-family: 'Times New Roman', Times, serif;
     color : red;
     margin-left: 50px;
@@ -31,4 +35,10 @@
     background-image: url("cloud.jpg");
     background-attachment: scroll;
     opacity: 0.1;
+}
+
+a{
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    color : green
 }

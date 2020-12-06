@@ -8,19 +8,131 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="styles.css" rel="stylesheet">
         
-    </head>
-    <body>
-        <h1 class="center" style="margin-top: 25px;">601 Flight Planning Guide</h1>
-        <h2 class = "center" style="color : ">Any Where Any time Any mission</h2>
-        <p class = "twenty_left">Item</p>
-        <ul>
-            <li class="font_item">Flight log</li>
-            <li class="font_item">Flight plan</li>
-            <li class="font_item">Notam</li>
-            <li class="font_item" href = "https://aviationweather.gov/">Weather</li>
+        <!-- create Nav Bar and picture-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="/PSET8/homepage/cloud.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                601SQDN
+              </a>
+
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
             
+          </nav>
 
+          <script>
+            let counter = 0;
 
+            function increment()
+            {
+              counter++;
+              document.querySelector("#result").innerHTML = counter;
+            }
+            function show_rgb()
+            {
+
+            }
+          
+            
+          </script>
+
+    </head>
+
+    <body>
+        <h1 class="center">601 Flight Planning Guide</h1>
+        <h2 class = "center" style="margin-top: 10px;">Any Where Any time Any mission</h2>
+        <p class = "twenty_left" >Item</p>
+        <ul class="font_item">
+            <a href=""><li>Flight plan</li></a>
+            <a href=""><li>Flight log</li></a>
+            <a href=""><li>Notam</li></a>
+            <a href = "https://aviationweather.gov/"><li>Weather</li><a>
         </ul>
+        
+        <form onsubmit="increment(); return false;">
+            <input type="submit">
+        </form>
+
+        <button id="red_add">+RED</button>
+        <button id="red_minus">-RED</button>
+
+        <button id="green_add">+GREEN</button>
+        <button id="green_minus">-GREEN</button>
+
+        <button id="blue_add">+BLUE</button>
+        <button id="blue_minus">-BLUE</button>
+        
+
+        <div id="result">
+          0
+        </div>
+
+        <script>
+          let red_rgb = 0;
+          let blue_rgb = 0;
+          let green_rgb = 0;
+        
+          //RED
+          document.querySelector("#red_add").onclick = function()
+          {
+            red_rgb = red_rgb+20;
+            document.querySelector("body").style.backgroundColor = 'rgb(' + red_rgb+ ',' + green_rgb +',' + blue_rgb +')';
+          }
+          document.querySelector("#red_minus").onclick = function()
+          {
+            red_rgb = red_rgb-20;
+            document.querySelector("body").style.backgroundColor = 'rgb(' + red_rgb+ ',' + green_rgb +',' + blue_rgb +')';
+          }
+
+          //GREEN
+          document.querySelector("#green_add").onclick = function()
+          {
+            green_rgb = green_rgb + 20;
+            document.querySelector("body").style.backgroundColor = 'rgb(' + red_rgb+ ',' + green_rgb +',' + blue_rgb +')';
+          }
+          document.querySelector("#green_minus").onclick = function()
+          {
+            green_rgb = green_rgb - 20;
+            document.querySelector("body").style.backgroundColor = 'rgb(' + red_rgb+ ',' + green_rgb +',' + blue_rgb +')';
+          }
+
+          //Blue
+          document.querySelector("#blue_add").onclick = function()
+          {
+            blue_rgb = blue_rgb + 20;
+            document.querySelector("body").style.backgroundColor = 'rgb(' + red_rgb+ ',' + green_rgb +',' + blue_rgb +')';
+          }
+          document.querySelector("#blue_minus").onclick = function()
+          {
+            blue_rgb = blue_rgb - 20;
+            document.querySelector("body").style.backgroundColor = 'rgb(' + red_rgb+ ',' + green_rgb +',' + blue_rgb +')';
+          }
+        </script>
     </body>
 </html>
