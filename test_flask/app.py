@@ -6,13 +6,12 @@ from flask_session import Session
 app = Flask(__name__)
 #เพื่อเป็นการ clear แคช ของเบาเซอร์ ซึ่งโดยปกติมันจะ reload ทุกๆ 12 ชั่วโมง แต่ในการฝึกผมจะเซตไว้เป็น 0 เพราะแก้โคตรบ่อย
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+# Ensure templates are auto-reloaded
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 #config session
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-
-# Ensure templates are auto-reloaded
-app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 #เป็นการบอกโปรแกรมว่า จะใช้ flask ที่ใส่ในตัวแปรของ add นะ ใช้ feature ว่า route
 @app.route("/")
