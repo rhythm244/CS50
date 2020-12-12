@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "C:\\Users\\ASUS\\Documents\\GitHub\\CS50\\test_flask\\app.py",
+                "FLASK_APP": "C:\\Users\\ASUS\\Documents\\GitHub\\CS50\\flask_db\\app.py",
                 "FLASK_ENV": "development",
                 "FLASK_DEBUG": "0"
             },
