@@ -1,0 +1,25 @@
+textarea {
+    min-height: 400px;
+}
+
+
+#emails-view{
+    width: 100%;
+    cursor: pointer;
+}
+
+#emails-view .mail {
+    display: grid;
+    grid-template-columns: 350px 1fr 1fr;
+    border: solid 1px #333;
+    height: auto;
+    justify-items: left;
+}
+
+#emails-view .mail .right{
+    justify-self: self-end;
+}
+
+#emails-view :hover{
+    background-color: aquamarine;
+}

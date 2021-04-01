@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body %}
+    <h1>My Database</h1>
+    {% for data in rows %}
+        <li> {{data}} </li>
+    {% endfor %}
 
-    {{ test }}
+    <a href="/register">Register</a>
 
 {% endblock %}

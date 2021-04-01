@@ -13,28 +13,34 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-
+#เข้าถึง database lecture.db 
+#lecture.db มันต้องอยู่ใน folder ที่ทำการรัน ซึ่งเวลาเซต JSON มันไปอยู่ใน CS50 เลยจำเป็นต้องเอา lucture.db ไว้นอก folder flask_db***
+db = SQL("sqlite:///lecture.db")
 #เป็นการบอกโปรแกรมว่า จะใช้ flask ที่ใส่ในตัวแปรของ add นะ ใช้ feature ว่า route
 @app.route("/")
-def task():
-    test = "hello world"
-    #ถ้ามีการเรียก => / ให้รีเทินค่า index.html
-    return render_template("index.html",test=test)
-
-"""
-#ถ้ามีการเรียก /add ให้ทำฟังชั่น add โดยสามารถมีการกระทำได้ทั้ง GET และ POST
-@app.route("/add", methods=["GET","POST"])
-def add():
-    if request.method == "GET":
-        return render_template("add.html")
+def index():
+    #เอาค่าจาก table registants in file lecture.db
+    rows = db.execute("SELECT * FROM registants")
+    #ถ้ามีการเรียก => / ให้รีเทินค่า index.html และให้ตัวแปรใน index.html ที่ชื่อว่า rows มีค่าเท่ากับ rows ที่เอาค่ามาจาก lucture.db
+    return render_template("index.html",rows=rows)
     
-    #ถ้าไม่ใช่ GET ให้นำค่าที่ได้จาก Form ของหน้า add ที่ถูก POST เอามาใส่ไว้ในตัวแปร
-    #จริงๆ บรรทัดล่างนี้ไม่จำเป็นต้องเป็น elif เป็น else ธรรมดา แล้วไม่ต้องมีเงื่อนไขก็ได้ แต่ใส่ไว้จะได้ไม่งง
+#ถ้ามีการเรียก /register ให้ทำฟังชั่น add โดยสามารถมีการกระทำได้ทั้ง GET และ POST
+@app.route("/register", methods=["GET","POST"])
+def register():
+    #ถ้าค่าที่ได้มาเป็น GET ทำการเปิดหน้า register.html
+    if request.method == "GET":
+        return render_template("register.html")
+ 
+    #แต่ถ้าเป็น POST ให้.....check ก่อนว่าใส่มาครบหรือไม่
     elif request.method == "POST":
-        #เอาค่า name ="task"ใน add.html มาใส่ไว้ในตัวแปร todo จากการ POST มาของ add.html
-        todo = request.form.get("task")
-        #ใส่ค่าที่เจอล่าสุดลงไปในตัวแปรที่สร้างไว้ในชื่อว่า session["todos"]
-        session["todos"].append(todo)
-        #หลังจากนั้นให้กลับไปหน้าแรก
+        name = request.form.get("name")
+        if not name:
+            return render_template("apology.html",message="You must provide a name")
+
+        email = request.form.get("email")
+        if not email:
+            return render_template("apology.html",message="You must provide a email")
+  
+        db.execute("INSERT INTO registants (name, email) VALUES (:name, :email)",name=name,email=email)
         return redirect("/")
-"""
+        
